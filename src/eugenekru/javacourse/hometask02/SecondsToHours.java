@@ -24,23 +24,14 @@ public class SecondsToHours {
 	
 	private static void printRemainingTime(int hours) {
 		
-		StringBuilder time = new StringBuilder("Осталось " + hours + " час");
+		String messegetoprint = switch(hours) {
+		case 0 -> "Осталось менее часа";
+		case 1 -> "Остался " + hours + " час";
+		case 2, 3, 4 -> "Осталось " + hours + " часа";
+		default -> "Осталось " + hours + " часов";
+		};
 		
-		if (hours > 4) {
-			System.out.println(time.insert(time.length(), "ов"));
-		} else if (hours != 1) {			
-			time = time.insert(time.length(), "a");
-			
-			if (hours > 1) {
-				System.out.println(time);
-			} else {
-				System.out.println(time.replace(9, 10, "менее"));
-			}
-			
-		} else {
-			System.out.println(time.replace(5, 8, "ся"));
-		}		
-		
+		System.out.println(messegetoprint);		
 	}
 	
 }

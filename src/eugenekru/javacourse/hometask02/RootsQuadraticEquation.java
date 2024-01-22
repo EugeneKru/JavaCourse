@@ -7,20 +7,20 @@ public class RootsQuadraticEquation {
 	public static void main(String[] args) {
 		
 		System.out.println("Enter the coefficients of the quadratic equation (a, b, c)");
-		int a = scanCoefficients();
-		int b = scanCoefficients();
-		int c = scanCoefficients();
+		int a = scanCoefficient();
+		int b = scanCoefficient();
+		int c = scanCoefficient();
 		int d = findDeterminant(a, b, c);
 		
 		if (d < 0) {
 			System.out.println("The quadratic equation doesn't have any root");
 		} else {
-			findRootsEquation(a, b, c, d);
+			findRootsEquation(a, b, d);
 		}
 		
 	}
 	
-	private static int scanCoefficients() {
+	private static int scanCoefficient() {
 		
 		Scanner scan = new Scanner(System.in);
 		return scan.nextInt();
@@ -34,7 +34,7 @@ public class RootsQuadraticEquation {
 		
 	}
 	
-	private static void findRootsEquation(int a, int b, int c, int d) {
+	private static void findRootsEquation(int a, int b, int d) {
 		
 		double x1;
 		double x2;
