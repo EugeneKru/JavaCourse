@@ -8,7 +8,7 @@ public abstract class Aircraft {
 	
 	private int yearbuilt;
 	
-	private int capasity;
+	private int capacity;
 	
 	private int tonnage;
 	
@@ -32,11 +32,11 @@ public abstract class Aircraft {
 	}	
 	
 	public int getCapasity() {
-		return capasity;
+		return capacity;
 	}
 	
 	public void setCapasity(int capasity) {
-		this.capasity = capasity;
+		this.capacity = capasity;
 	}
 	
 	public int getTonnage() {

@@ -1,16 +1,14 @@
 package eugenekru.javacourse.hometask06.task1;
 
-import eugenekru.javacourse.hometask06.task1.enumpack.Lifetime;
-import eugenekru.javacourse.hometask06.task1.enumpack.Mileage;
-import eugenekru.javacourse.hometask06.task1.enumpack.Speed;
+import eugenekru.javacourse.hometask06.task1.enumpack.AircraftSpecifications;
 
 public class Helicopter extends Aircraft{
 
-	public Helicopter(String name, int yearbuilt, int capasity) {
+	public Helicopter(String name, int yearbuilt, int capacity) {
 		super(name, yearbuilt);
-		setCapasity(capasity);
-		setSpeed(Speed.HELICOPTER.speed);
-		setMileage(Mileage.HELICOPTER.mileage);		
-		setLifetime(Lifetime.HELICOPTER.lifetime);
+		setCapasity(capacity);
+		setSpeed(AircraftSpecifications.HELICOPTER.getSpeed());
+		setMileage(AircraftSpecifications.HELICOPTER.getMileage());		
+		setLifetime(AircraftSpecifications.HELICOPTER.getLifetime());
 	}
 }

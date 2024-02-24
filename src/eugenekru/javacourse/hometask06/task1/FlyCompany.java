@@ -72,7 +72,7 @@ public class FlyCompany implements Comparator<Aircraft>{
 		return o1.getSpeed() - o2.getSpeed();
 	}
 	
-	private static Comparator<Aircraft> sortByMileage = new Comparator<Aircraft>() {		
+	private static Comparator<Aircraft> comparatorByMileage = new Comparator<Aircraft>() {		
 
 		@Override
 		public int compare(Aircraft o1, Aircraft o2) {			
@@ -81,41 +81,23 @@ public class FlyCompany implements Comparator<Aircraft>{
 	};
 		
 	public void printSortByMileage() {
-		Collections.sort(fleet, FlyCompany.sortByMileage);
+		
+		Collections.sort(fleet, FlyCompany.comparatorByMileage);
+		
 		for (Aircraft elem: fleet) {
 			System.out.println(elem.getName() + " mileage: " + elem.getMileage());
 		}
-	}
-	
-	public static int scanner() {
 		
-		Scanner sc = new Scanner(System.in);
-		int scan = sc.nextInt();
-		return scan;
+		System.out.println("\n");
 	}
 	
-	public void findBoard() {
-		
-		System.out.print("\nIf you want to find a passenger's board enter 1"
-							+ "\nIf you want to find a cargo's board enter 2: ");
-		int choise = scanner();
-		switch(choise) {
-		case 1 -> findPasengersBoard();
-		case 2 -> findCargoBoard();
-		}		
-	}
-	
-	private void findCargoBoard() {
+	public void findCargoBoard(int mileage, int tonnage) {
 		
 		String message = "We haven't got any board suits you";
-		System.out.print("Enter a board's mileage: ");
-		int mileage = scanner();
-		System.out.print("Enter a board's tonnage: ");
-		int tonnage = scanner();
-				
+		
 		for (Aircraft elem: fleet) {
 			if(elem.isFlightAllowed() && mileage < elem.getMileage() && tonnage < elem.getTonnage()) {				
-				message = elem.getName() + " suits you";
+				message = elem.getName() + " suits you\n";
 				break;
 			} 
 		}
@@ -123,17 +105,13 @@ public class FlyCompany implements Comparator<Aircraft>{
 		System.out.println(message);
 	}
 	
-	private void findPasengersBoard() {
+	public void findPasengersBoard(int mileage, int capacity) {
 		
 		String message = "We haven't got any board suits you";
-		System.out.print("Enter a board's mileage: ");
-		int mileage = scanner();
-		System.out.print("Enter a board's capacity: ");
-		int capacity = scanner();
 		
 		for (Aircraft elem: fleet) {
 			if(elem.isFlightAllowed() && mileage < elem.getMileage() && capacity < elem.getCapasity()) {
-				message = elem.getName() + " suits you";
+				message = elem.getName() + " suits you\n";
 				break;
 			} 
 		}
